@@ -2,6 +2,8 @@
 
 A static site built from a Figma design, implemented mobile-first with a single interactive element (a mobile hamburger menu).
 
+**Live:** https://taimatsu-front-end-trial.vercel.app/
+
 **Status:** project scaffold complete. Design tokens and page sections are pending Figma import.
 
 ## Stack
