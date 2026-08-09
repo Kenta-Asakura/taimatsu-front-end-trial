@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colors — TODO: replace with values from Figma Dev Mode (see docs/design-questions.md §1.1) */
+  --color-brand-primary: #000000;
+  --color-brand-secondary: #666666;
+  --color-ink: #111111;
+  --color-ink-muted: #555555;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f5;
+
+  /* Type ramp — TODO: replace with values from Figma Dev Mode */
+  --text-display: 2.5rem;
+  --text-display--line-height: 1.1;
+  --text-h1: 2rem;
+  --text-h1--line-height: 1.2;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  /* TODO: confirm Latin + CJK stack against the design; Noto Sans JP needs
+     subsetting or a system fallback to avoid a multi-MB webfont (see plan §7.4) */
+  --font-sans:
+    'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
+
+  --radius-card: 0.5rem;
+  --shadow-card: 0 4px 12px rgb(0 0 0 / 0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-surface);
+  }
+}
