@@ -40,7 +40,7 @@
   --text-heading-md--line-height: 1;
   --text-heading-md--font-weight: 700;
 
-  --text-cta: 1rem; /* 16px Inter Bold — button label ("もっと見る"). Single-line only; line-height intentionally unbaked */
+  --text-cta: 0.875rem; /* 14px mobile - button label. Overridden to 16px at md+ below. */
   --text-cta--font-weight: 700;
 
   /* 16px/700/line-height 1.5 — pickup section category label, reused across other cards. */
@@ -67,9 +67,9 @@
   --font-sans:
     'Inter', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
 
-  --radius-custom-sm: 0.25rem; /* 4px — measured on the CTA button */
-  --radius-custom-md: 8px;
-  --radius-custom-lg: 16px;
+  --radius-custom-sm: 0.25rem; /* 4px */
+  --radius-custom-md: 0.5rem; /* 8px */
+  --radius-custom-lg: 1rem; /* 16px */
   /* No shadow/elevation effects observed on any sampled node — flat design. add one only if a later frame shows one. */
 
   /* Spacing — computed from raw node coordinates (frames 1:530 mobile /
@@ -84,6 +84,10 @@
   --spacing-row-gap-desktop: 3.5rem; /* 56px — desktop card row gap, 7×8 */
   --spacing-section-gap-desktop: 4rem; /* 64px — desktop section-to-section gap, exact 8×8 */
   --spacing-section-gap-mobile: 5.5rem; /* ~88px — UNVERIFIED: not a clean multiple, may include heading leading; */
+
+  /* Button height — shared by all variants */
+  --spacing-button-height-mobile: 2.4375rem; /* 39px */
+  --spacing-button-height-desktop: 3.625rem; /* 58px */
 }
 
 @layer base {
@@ -105,5 +109,14 @@
     font-family: var(--font-sans);
     color: var(--color-ink);
     background: var(--color-surface);
+  }
+
+  /* --text-cta is 14px on mobile (set above); the "text-cta" utility reads
+     this variable at render time, so reassigning it at md+ resizes every
+     existing usage without a separate desktop utility class. */
+  @media (min-width: 48rem) {
+    :root {
+      --text-cta: 1rem; /* 16px desktop */
+    }
   }
 }
