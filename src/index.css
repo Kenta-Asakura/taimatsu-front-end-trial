@@ -43,8 +43,11 @@
   --text-cta: 0.875rem; /* 14px mobile - button label. Overridden to 16px at md+ below. */
   --text-cta--font-weight: 700;
 
-  /* 16px/700/line-height 1.5 — pickup section category label, reused across other cards. */
-  --text-label: 1rem;
+  /* 14px mobile / 16px desktop, 700/line-height 1.5 — pickup section category
+     label, reused across all image+caption card variants (ImageCard). Same
+     responsive-reassignment pattern as --text-cta: mobile value here,
+     overridden at md+ below. */
+  --text-label: 0.875rem; /* 14px mobile */
   --text-label--line-height: 1.5;
   --text-label--font-weight: 700;
 
@@ -88,6 +91,26 @@
   /* Button height — shared by all variants */
   --spacing-button-height-mobile: 2.4375rem; /* 39px */
   --spacing-button-height-desktop: 3.625rem; /* 58px */
+
+  /* Container width — the content container is always full available width,
+     capped at a desktop ceiling (Figma's "dt max-width" on the container
+     frame). No mobile floor: below the ceiling it tracks the viewport
+     exactly, so it never forces overflow on narrow screens. Horizontal
+     padding still switches at md via --spacing-gutter-mobile/desktop above
+     — that's a separate concern from the width cap. See
+     src/components/ui/Container.tsx.
+     Figma also listed a "mb min-width" of 362px on this frame; not
+     implemented as a hard floor per direct confirmation from the user that
+     the container should always be full available width up to the max —
+     see docs/decisions.md.
+     VALUE IS NOT 1352px: with global box-sizing:border-box (see base layer
+     below), max-width includes the element's own padding. Figma's 1352px is
+     the CONTENT width (excluding the side gutters) — confirmed by 1352 +
+     2×188 (desktop gutter) = 1728px landing on an exact rem value (108rem),
+     which is too clean to be coincidental. So the element's own max-width is
+     inflated by the desktop gutter on both sides, so that once padding is
+     subtracted the inner content area lands exactly on 1352px. */
+  --container-content-max: 108rem; /* 1728px = 1352px content + 2×188px desktop gutter */
 }
 
 @layer base {
@@ -111,12 +134,13 @@
     background: var(--color-surface);
   }
 
-  /* --text-cta is 14px on mobile (set above); the "text-cta" utility reads
-     this variable at render time, so reassigning it at md+ resizes every
-     existing usage without a separate desktop utility class. */
+  /* --text-cta and --text-label are 14px on mobile (set above); the utilities
+     read these variables at render time, so reassigning them at md+ resizes
+     every existing usage without separate desktop utility classes. */
   @media (min-width: 48rem) {
     :root {
       --text-cta: 1rem; /* 16px desktop */
+      --text-label: 1rem; /* 16px desktop */
     }
   }
 }
