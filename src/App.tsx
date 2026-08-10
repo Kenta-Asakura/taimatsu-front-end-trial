@@ -1,14 +1,31 @@
+import categoriesImg from '@/assets/images/product-category-image.jpg'
+import categoriesImg2x from '@/assets/images/product-category-image@2x.jpg'
+import teesImg from '@/assets/images/sale-sample.jpg'
+import teesImg2x from '@/assets/images/sale-sample@2x.jpg'
+import brandsImg from '@/assets/images/brands.jpg'
+import brandsImg2x from '@/assets/images/brands@2x.jpg'
+import articlesImg from '@/assets/images/articles.jpg'
+import articlesImg2x from '@/assets/images/articles@2x.jpg'
+import seasonalImg from '@/assets/images/seasonal-recommendation.jpg'
+import seasonalImg2x from '@/assets/images/seasonal-recommendation@2x.jpg'
+// import productImg from '@/assets/images/product.jpg'
+
 import { Button } from '@/components/ui/Button'
 // import { Chevron } from '@/components/ui/Chevron'
 // import { ProductCard } from '@/components/ui/ProductCard'
-// import { ImageCard } from '@/components/ui/ImageCard'
+import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
 
 // Scaffold-verification view only — exercises the §1.3 component set against
 // real exported assets with clearly-placeholder copy (no final content yet).
 // Replaced once real sections (Header/Hero/.../Footer) are built.
-// Card sections (Category/Pickup/Banner/Feature) land once ImageCard ships
-// in its own PR — this file stays buildable without it in the meantime.
+
+// Each section repeats its one real card as many times as the design shows —
+// not varied/random content, matching the design file's repeated placeholder cards.
+const CATEGORIES_COUNT = 12
+const PICKUPS_COUNT = 12
+const BRANDS_COUNT = 4
+const ARTICLES_COUNT = 4
 
 function App() {
   return (
@@ -33,6 +50,90 @@ function App() {
             <Button variant="secondary">サブボタン</Button>
             <Button variant="tertiary">検索</Button>
           </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-3">
+          <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+            {Array.from({ length: CATEGORIES_COUNT }, (_, i) => (
+              <ImageCard
+                key={i}
+                variant="categories"
+                imageSrc={categoriesImg}
+                imageSrc2x={categoriesImg2x}
+                imageAlt=""
+                label="家具・収納・家電"
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Pickups cards</h2>
+          <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+            {Array.from({ length: PICKUPS_COUNT }, (_, i) => (
+              <ImageCard
+                key={i}
+                variant="pickups"
+                imageSrc={teesImg}
+                imageSrc2x={teesImg2x}
+                imageAlt=""
+                label="夏を快適にするTシャツ・ボトムス"
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Brands cards</h2>
+          <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+            {Array.from({ length: BRANDS_COUNT }, (_, i) => (
+              <ImageCard
+                key={i}
+                variant="brands"
+                imageSrc={brandsImg}
+                imageSrc2x={brandsImg2x}
+                imageAlt=""
+                label="IDÉE SHOP Online"
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Books</h2>
+          <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+            {Array.from({ length: ARTICLES_COUNT }, (_, i) => (
+              <ImageCard
+                key={i}
+                variant="articles"
+                imageSrc={articlesImg}
+                imageSrc2x={articlesImg2x}
+                imageAlt=""
+                label="「レモンの爽やかなパスタソース」をかけるだけ。 洋食屋さん風のごちそうアレンジ"
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Feature card</h2>
+          <ImageCard
+            variant="feature"
+            imageSrc={seasonalImg}
+            imageSrc2x={seasonalImg2x}
+            imageAlt=""
+            label="かぼちゃ・さつまいも・栗のお菓子"
+          />
         </Container>
       </section>
 
