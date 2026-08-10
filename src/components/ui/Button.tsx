@@ -27,8 +27,15 @@ type ButtonProps = {
   className?: string
 }
 
-export function Button({ variant, children, href, onClick, className = '' }: ButtonProps) {
-  const classes = `${baseClasses} ${variantClasses[variant]} ${className}`.trim()
+export function Button({
+  variant,
+  children,
+  href,
+  onClick,
+  className = '',
+}: ButtonProps) {
+  const classes =
+    `${baseClasses} ${variantClasses[variant]} ${className}`.trim()
 
   // This is a single static page with no real destinations yet — omitting href always renders a real <button>, never
   // a placeholder href="#" anchor, so link purpose stays honest (WCAG 2.4.4).
