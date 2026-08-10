@@ -10,6 +10,7 @@ Open questions for the designer, logged as they come up during token extraction 
 
 ## Structure / Layout
 
+- ~~Container mobile min-width (362px) vs. the 320px WCAG 1.4.10 reflow floor~~ — resolved: container has no mobile floor, always full available width up to the desktop max. See `decisions.md`.
 - (carried over from the project plan, not yet asked) What happens between 768–1024px if only mobile and desktop frames exist in the file?
 - Is the header sticky on scroll, and if so does its appearance change?
 - Mobile menu: full-screen overlay vs. slide-in drawer — not drawn in the file; see `docs/decisions.md` for the assumption in use.
