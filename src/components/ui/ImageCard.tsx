@@ -73,7 +73,9 @@ export function ImageCard({
         loading="lazy"
         className={`object-cover ${imageClassName}`}
       />
-      <span className="text-label text-(--color-ink)">{label}</span>
+      <span className="text-body-md md:text-body-lg leading-normal font-bold text-(--color-ink)">
+        {label}
+      </span>
     </div>
   )
 }

@@ -1,21 +1,18 @@
-type TopBannerProps = {
-  className?: string
-}
-
-// Site-wide promotional strip. Copy and colors are approximated from a
-// screenshot, not measured in Figma Dev Mode — reusing existing tokens
-// (--color-brand-red, --color-cta-surface) rather than inventing new ones.
-// Exact banner height/spacing/highlight-box values are unverified; flag in
-// docs/design-questions.md once the real frame is available.
-export function TopBanner({ className = '' }: TopBannerProps) {
+export function TopBanner() {
   return (
     <div
-      className={`bg-(--color-surface) text-(--color-brand-red) ${className}`.trim()}
+      className={
+        'border-b border-(--color-gray-100) bg-(--color-surface) px-[55px] py-[5px] md:border-(--color-white) md:bg-(--color-gray-100) md:py-2.5'
+      }
     >
-      <p className="text-link flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-(--spacing-gutter-mobile) py-2 text-center">
-        <span className="font-bold">ネットストア限定</span>
-        <span>対象の小物商品 税込5000円以上購入で</span>
-        <span className="rounded-(--radius-custom-sm) bg-(--color-cta-surface) px-2 py-0.5 font-bold">
+      <p className="text-body-xs md:text-body-sm flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-bold">
+        <span className="whitespace-nowrap text-(--color-brand-red)">
+          ネットストア限定
+        </span>
+        <span className="whitespace-nowrap text-(--color-gray-500)">
+          対象の小物商品 税込5000円以上購入で
+        </span>
+        <span className="text-body-md md:text-body-lg whitespace-nowrap text-(--color-brand-red)">
           配送料無料
         </span>
       </p>
