@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/Button'
 // import { ProductCard } from '@/components/ui/ProductCard'
 import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
+import { TopBanner } from './components/layout/TopBanner'
 
 // Scaffold-verification view only — exercises the §1.3 component set against
 // real exported assets with clearly-placeholder copy (no final content yet).
@@ -29,13 +30,15 @@ const ARTICLES_COUNT = 4
 
 function App() {
   return (
-    <main className="flex flex-col gap-10 py-10">
+    <main className="flex flex-col gap-10">
+      <TopBanner />
+
       <header>
         <Container className="flex flex-col gap-1">
           <h1 className="text-heading-lg text-(--color-ink)">
             Component scaffold
           </h1>
-          <p className="text-body text-(--color-ink-muted)">
+          <p className="text-body-md leading-normal text-(--color-ink-muted)">
             Placeholder copy — verifying tokens/components render correctly
             against real assets.
           </p>
@@ -154,13 +157,15 @@ function App() {
         </Container>
         <div className="flex flex-col gap-2">
           <Container className="bg-(--color-cta-surface) py-2">
-            <p className="text-body">
+            <p className="text-body-md leading-normal">
               content — full width, capped at max-width 1352px
             </p>
           </Container>
 
           <Container variant="fluid" className="bg-(--color-beige-200) py-2">
-            <p className="text-body px-4">fluid — always full width</p>
+            <p className="text-body-md px-4 leading-normal">
+              fluid — always full width
+            </p>
           </Container>
         </div>
       </section>
@@ -168,7 +173,7 @@ function App() {
       {/* <section className="flex flex-col gap-3">
         <h2 className="text-heading-md text-(--color-ink)">Seasonal header (static, non-interactive)</h2>
         <div className="flex items-center justify-between text-(--color-ink)">
-          <span className="text-label">季節のおすすめ</span>
+          <span className="text-body-md md:text-body-lg font-bold leading-normal">季節のおすすめ</span>
           <Chevron direction="down" />
         </div>
       </section> */}

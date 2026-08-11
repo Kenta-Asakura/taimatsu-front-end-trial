@@ -4,7 +4,7 @@ export type ButtonVariant = 'main' | 'secondary' | 'tertiary'
 
 // Universal across every variant: all three are bordered boxes with the same
 const baseClasses =
-  'inline-flex items-center justify-center text-cta text-(--color-ink) border border-(--color-border) rounded-(--radius-custom-sm) h-(--spacing-button-height-mobile) md:h-(--spacing-button-height-desktop)'
+  'inline-flex items-center justify-center text-body-md md:text-body-lg font-bold text-(--color-ink) border border-(--color-border) rounded-(--radius-custom-sm) h-(--spacing-button-height-mobile) md:h-(--spacing-button-height-desktop)'
 
 // main/secondary share the same width: fixed per the design at both
 // breakpoints — full-width/fluid on mobile (container-driven, matches the mobile frame), fixed 240px on desktop.
