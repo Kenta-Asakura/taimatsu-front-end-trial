@@ -15,8 +15,8 @@ import { Button } from '@/components/ui/Button'
 // import { ProductCard } from '@/components/ui/ProductCard'
 import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
-import { Section } from '@/components/ui/Section'
 import { TopBanner } from './components/layout/TopBanner'
+import { AnnouncementList } from './components/layout/AnnouncementList'
 
 // Scaffold-verification view only — exercises the §1.3 component set against
 // real exported assets with clearly-placeholder copy (no final content yet).
@@ -46,6 +46,10 @@ function App() {
     <main>
       <TopBanner />
 
+      <section className="py-[15px] md:py-6">
+        <AnnouncementList />
+      </section>
+
       <header>
         <Container className="flex flex-col gap-1">
           <h1 className="text-heading-lg text-(--color-ink)">
@@ -58,7 +62,7 @@ function App() {
         </Container>
       </header>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Buttons</h2>
           <div className="flex flex-wrap items-center gap-4">
@@ -67,21 +71,15 @@ function App() {
             <Button variant="tertiary">検索</Button>
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* --- Real page sections, in page order --- */}
 
-      <Section>
-        {/* AnnouncementList exists on feature/announcement-list, not yet
-            merged to main — this branch can't import it yet. */}
-        <Placeholder label="Notice" />
-      </Section>
-
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Placeholder label="Hero" />
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Categories</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
@@ -97,9 +95,9 @@ function App() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         {/* <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">New Products</h2>
           <div className="grid max-w-40 gap-3">
@@ -107,9 +105,9 @@ function App() {
           </div>
         </Container> */}
         <Placeholder label="New Products" />
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Pickups</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
@@ -125,9 +123,9 @@ function App() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Features</h2>
           <ImageCard
@@ -138,9 +136,9 @@ function App() {
             label="かぼちゃ・さつまいも・栗のお菓子"
           />
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Brands</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
@@ -156,9 +154,9 @@ function App() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Articles</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
@@ -174,23 +172,23 @@ function App() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <Placeholder label="Store Finder" />
-      </Section>
+      </section>
 
       <footer>
         <Placeholder label="Footer" />
       </footer>
 
-      {/* <Section>
+      {/* <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
         <h2 className="text-heading-md text-(--color-ink)">Seasonal header (static, non-interactive)</h2>
         <div className="flex items-center justify-between text-(--color-ink)">
           <span className="text-body-md md:text-body-lg font-bold leading-normal">季節のおすすめ</span>
           <Chevron direction="down" />
         </div>
-      </Section> */}
+      </section> */}
     </main>
   )
 }
