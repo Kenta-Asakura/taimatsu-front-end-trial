@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Colors — primitives: raw palette pulled from Figma, ordered by lightness within each family */
+  /* Colors — raw palette, ordered by lightness within each family */
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -19,90 +19,61 @@
   --color-brand-red: #7f0019;
   --color-border: var(--color-gray-100);
 
-  /* Colors — semantic: role-based aliases, what components actually consume */
+  /* Colors — semantic aliases, what components actually consume */
   --color-ink: var(--color-black);
   --color-ink-muted: var(--color-brand-black);
   --color-surface: var(--color-white);
   --color-cta-surface: var(--color-beige-100);
 
-  /* Typography — primitives: the raw sizes that recur across multiple
-     semantic roles (10/12/14/16px), so a change to the
-     base scale doesn't require hand-editing every place that happens to
-     share a pixel value. These exist to be referenced via var(), not
-     applied directly. */
+  /* Base font sizes — reference values, not applied directly */
   --font-size-10: 0.625rem;
   --font-size-12: 0.75rem;
   --font-size-14: 0.875rem;
   --font-size-16: 1rem;
 
-  /* Typography — semantic: size-ordered, role-decoupled. Prefixed "body-"
-     (never bare xs/sm/base/lg) specifically so it can't be confused with
-     Tailwind's own text-xs/sm/base/lg, which map to different pixel values.
-     None of these bake in weight or line-height — every size here is used
-     with more than one weight/line-height combination across the file (e.g.
-     12px is both a regular link and a bold notification), so baking either
-     in would misrepresent one of its call sites. Compose font-* / leading-*
-     utilities at each call site instead. */
-  --text-body-xs: var(--font-size-10); /* was price-suffix */
-  --text-body-sm: var(--font-size-12); /* was link */
-  --text-body-md: var(--font-size-14); /* was body / cta+label mobile */
-  --text-body-lg: var(--font-size-16); /* was price / cta+label desktop */
+  /* Semantic sizes. No baked-in weight/line-height — compose font-* /
+     leading-* at the call site, since each size is reused across multiple
+     styles. */
+  --text-body-xs: var(--font-size-10);
+  --text-body-sm: var(--font-size-12);
+  --text-body-md: var(--font-size-14);
+  --text-body-lg: var(--font-size-16);
 
-  /* Headings stay composite — single-purpose, always the same weight/line-height */
-  --text-heading-lg: 2rem; /* 32px — "h2". Line-height 100% per spec — verify no wrap at 375px before shipping */
+  /* Headings — single-purpose, fixed weight/line-height */
+  --text-heading-lg: 2rem; /* 32px — h2, line-height 100% per spec */
   --text-heading-lg--line-height: 1;
   --text-heading-lg--font-weight: 700;
 
-  --text-heading-md: 1.625rem; /* 26px — "h3". Line-height 100% per spec, same wrap caveat as heading-lg */
+  --text-heading-md: 1.625rem; /* 26px — h3, line-height 100% per spec */
   --text-heading-md--line-height: 1;
   --text-heading-md--font-weight: 700;
 
-  /* Shared Typography & Spacing System */
-  /* Only one typeface found across sampled nodes — no secondary font. */
   --font-sans:
     'Inter', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
 
   --radius-custom-sm: 0.25rem; /* 4px */
   --radius-custom-md: 0.5rem; /* 8px */
   --radius-custom-lg: 1rem; /* 16px */
-  /* No shadow/elevation effects observed on any sampled node — flat design. add one only if a later frame shows one. */
 
-  /* Spacing — computed from raw node coordinates (frames 1:530 mobile /
-     1:9 desktop), not from a Figma spacing scale (none is defined in the
-     file). Desktop lands cleanly on an 8pt rhythm; mobile does not — treat
-     the mobile values as looser, hand-placed numbers. See design-questions.md. */
+  /* Spacing — measured directly from Figma. Desktop follows an 8pt rhythm;
+     mobile doesn't. */
   --spacing-gutter-mobile: 0.9375rem; /* 15px — mobile side margin / card grid gap */
   --spacing-gutter-desktop: 11.75rem; /* 188px — desktop side margin */
-  --spacing-card-gap-mobile: 0.9375rem; /* 15px — mobile card grid gutter, same unit as gutter-mobile */
-  --spacing-card-gap-desktop: 1.5rem; /* 24px — desktop card grid gutter, clean 8pt multiple */
+  --spacing-card-gap-mobile: 0.9375rem; /* 15px — mobile card grid gutter */
+  --spacing-card-gap-desktop: 1.5rem; /* 24px — desktop card grid gutter */
   --spacing-row-gap-mobile: 1.5rem; /* 24px — mobile card row gap */
-  --spacing-row-gap-desktop: 3.5rem; /* 56px — desktop card row gap, 7×8 */
-  --spacing-section-gap-desktop: 4rem; /* 64px — desktop section-to-section gap, exact 8×8 */
-  --spacing-section-gap-mobile: 5.5rem; /* ~88px — UNVERIFIED: not a clean multiple, may include heading leading; */
+  --spacing-row-gap-desktop: 3.5rem; /* 56px — desktop card row gap */
+  --spacing-section-gap-desktop: 4rem; /* 64px — section vertical padding */
+  --spacing-section-gap-mobile: 2rem; /* 32px — section vertical padding */
 
   /* Button height — shared by all variants */
   --spacing-button-height-mobile: 2.4375rem; /* 39px */
   --spacing-button-height-desktop: 3.625rem; /* 58px */
 
-  /* Container width — the content container is always full available width,
-     capped at a desktop ceiling (Figma's "dt max-width" on the container
-     frame). No mobile floor: below the ceiling it tracks the viewport
-     exactly, so it never forces overflow on narrow screens. Horizontal
-     padding still switches at md via --spacing-gutter-mobile/desktop above
-     — that's a separate concern from the width cap. See
-     src/components/ui/Container.tsx.
-     Figma also listed a "mb min-width" of 362px on this frame; not
-     implemented as a hard floor per direct confirmation from the user that
-     the container should always be full available width up to the max —
-     see docs/decisions.md.
-     VALUE IS NOT 1352px: with global box-sizing:border-box (see base layer
-     below), max-width includes the element's own padding. Figma's 1352px is
-     the CONTENT width (excluding the side gutters) — confirmed by 1352 +
-     2×188 (desktop gutter) = 1728px landing on an exact rem value (108rem),
-     which is too clean to be coincidental. So the element's own max-width is
-     inflated by the desktop gutter on both sides, so that once padding is
-     subtracted the inner content area lands exactly on 1352px. */
-  --container-content-max: 108rem; /* 1728px = 1352px content + 2×188px desktop gutter */
+  /* Content container's max-width. Value is inflated by 2× the desktop
+     gutter (border-box padding), so the inner content area lands on
+     Figma's 1352px, not the raw 1352 itself — see decisions.md. */
+  --container-content-max: 108rem; /* 1728px */
 }
 
 @layer base {

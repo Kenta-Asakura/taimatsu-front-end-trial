@@ -15,22 +15,35 @@ import { Button } from '@/components/ui/Button'
 // import { ProductCard } from '@/components/ui/ProductCard'
 import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
 import { TopBanner } from './components/layout/TopBanner'
 
 // Scaffold-verification view only — exercises the §1.3 component set against
 // real exported assets with clearly-placeholder copy (no final content yet).
 // Replaced once real sections (Header/Hero/.../Footer) are built.
 
-// Each section repeats its one real card as many times as the design shows —
-// not varied/random content, matching the design file's repeated placeholder cards.
+// Each section repeats its one real card as many times as the design shows
 const CATEGORIES_COUNT = 12
 const PICKUPS_COUNT = 12
 const BRANDS_COUNT = 4
 const ARTICLES_COUNT = 4
 
+// Page IA (top to bottom): Header, Notice, Hero, Categories, New Products,
+// Pickups, Features, Brands, Articles, Store Finder, Footer. Sections with
+// no component yet render a labeled placeholder so the running scaffold
+// shows the real page order/rhythm; they're swapped for real content as
+// each one ships on its own branch.
+function Placeholder({ label }: { label: string }) {
+  return (
+    <Container>
+      <p className="text-body-sm text-(--color-ink-muted)">{label} — pending</p>
+    </Container>
+  )
+}
+
 function App() {
   return (
-    <main className="flex flex-col gap-10">
+    <main>
       <TopBanner />
 
       <header>
@@ -45,7 +58,7 @@ function App() {
         </Container>
       </header>
 
-      <section>
+      <Section>
         <Container className="flex flex-col gap-3">
           <h2 className="text-heading-md text-(--color-ink)">Buttons</h2>
           <div className="flex flex-wrap items-center gap-4">
@@ -54,10 +67,23 @@ function App() {
             <Button variant="tertiary">検索</Button>
           </div>
         </Container>
-      </section>
+      </Section>
 
-      <section>
+      {/* --- Real page sections, in page order --- */}
+
+      <Section>
+        {/* AnnouncementList exists on feature/announcement-list, not yet
+            merged to main — this branch can't import it yet. */}
+        <Placeholder label="Notice" />
+      </Section>
+
+      <Section>
+        <Placeholder label="Hero" />
+      </Section>
+
+      <Section>
         <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Categories</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
             {Array.from({ length: CATEGORIES_COUNT }, (_, i) => (
               <ImageCard
@@ -71,11 +97,21 @@ function App() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      <section>
+      <Section>
+        {/* <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">New Products</h2>
+          <div className="grid max-w-40 gap-3">
+            <ProductCard imageSrc={productImg} imageAlt="" badgeLabel="NEW" name="商品名" price={3980} />
+          </div>
+        </Container> */}
+        <Placeholder label="New Products" />
+      </Section>
+
+      <Section>
         <Container className="flex flex-col gap-3">
-          <h2 className="text-heading-md text-(--color-ink)">Pickups cards</h2>
+          <h2 className="text-heading-md text-(--color-ink)">Pickups</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
             {Array.from({ length: PICKUPS_COUNT }, (_, i) => (
               <ImageCard
@@ -89,11 +125,24 @@ function App() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <Container className="flex flex-col gap-3">
-          <h2 className="text-heading-md text-(--color-ink)">Brands cards</h2>
+          <h2 className="text-heading-md text-(--color-ink)">Features</h2>
+          <ImageCard
+            variant="feature"
+            imageSrc={seasonalImg}
+            imageSrc2x={seasonalImg2x}
+            imageAlt=""
+            label="かぼちゃ・さつまいも・栗のお菓子"
+          />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="flex flex-col gap-3">
+          <h2 className="text-heading-md text-(--color-ink)">Brands</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
             {Array.from({ length: BRANDS_COUNT }, (_, i) => (
               <ImageCard
@@ -107,11 +156,11 @@ function App() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <Container className="flex flex-col gap-3">
-          <h2 className="text-heading-md text-(--color-ink)">Books</h2>
+          <h2 className="text-heading-md text-(--color-ink)">Articles</h2>
           <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
             {Array.from({ length: ARTICLES_COUNT }, (_, i) => (
               <ImageCard
@@ -125,58 +174,23 @@ function App() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      <section>
-        <Container className="flex flex-col gap-3">
-          <h2 className="text-heading-md text-(--color-ink)">Feature card</h2>
-          <ImageCard
-            variant="feature"
-            imageSrc={seasonalImg}
-            imageSrc2x={seasonalImg2x}
-            imageAlt=""
-            label="かぼちゃ・さつまいも・栗のお菓子"
-          />
-        </Container>
-      </section>
+      <Section>
+        <Placeholder label="Store Finder" />
+      </Section>
 
-      {/* <section className="flex flex-col gap-3">
-        <h2 className="text-heading-md text-(--color-ink)">New product card</h2>
-        <div className="grid max-w-40 gap-3">
-          <ProductCard imageSrc={productImg} imageAlt="" badgeLabel="NEW" name="商品名" price={3980} />
-        </div>
-      </section> */}
+      <footer>
+        <Placeholder label="Footer" />
+      </footer>
 
-      {/* Demonstrates both variants directly — content clamps to the design's
-          max-width, fluid always spans the true viewport edge to edge. No
-          wrapping Container here on purpose: main no longer constrains
-          width, so both variants are exactly what a real page would see. */}
-      <section className="flex flex-col gap-3">
-        <Container>
-          <h2 className="text-heading-md text-(--color-ink)">Container</h2>
-        </Container>
-        <div className="flex flex-col gap-2">
-          <Container className="bg-(--color-cta-surface) py-2">
-            <p className="text-body-md leading-normal">
-              content — full width, capped at max-width 1352px
-            </p>
-          </Container>
-
-          <Container variant="fluid" className="bg-(--color-beige-200) py-2">
-            <p className="text-body-md px-4 leading-normal">
-              fluid — always full width
-            </p>
-          </Container>
-        </div>
-      </section>
-
-      {/* <section className="flex flex-col gap-3">
+      {/* <Section>
         <h2 className="text-heading-md text-(--color-ink)">Seasonal header (static, non-interactive)</h2>
         <div className="flex items-center justify-between text-(--color-ink)">
           <span className="text-body-md md:text-body-lg font-bold leading-normal">季節のおすすめ</span>
           <Chevron direction="down" />
         </div>
-      </section> */}
+      </Section> */}
     </main>
   )
 }
