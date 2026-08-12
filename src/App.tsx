@@ -17,6 +17,7 @@ import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { TopBanner } from './components/layout/TopBanner'
+import { AnnouncementList } from './components/layout/AnnouncementList'
 
 // Scaffold-verification view only — exercises the §1.3 component set against
 // real exported assets with clearly-placeholder copy (no final content yet).
@@ -45,6 +46,7 @@ function App() {
   return (
     <main>
       <TopBanner />
+      <AnnouncementList />
 
       <header>
         <Container className="flex flex-col gap-1">
