@@ -25,7 +25,7 @@ export const HamburgerMenuToggleButton = forwardRef<
       onClick={onToggle}
       className={`shrink-0 ${className}`.trim()}
     >
-      <HamburgerIcon aria-hidden="true" className="w-3 h-2.5" />
+      <HamburgerIcon aria-hidden="true" className="h-2.5 w-3" />
     </button>
   )
 })
