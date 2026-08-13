@@ -19,6 +19,24 @@ Rationale for calls made without designer sign-off, so they read as decisions ra
 - **The `max-w-(--container-content-max)` value is 1728px, not the 1352px Figma reports — this is intentional, not a mismatch.** With global `box-sizing: border-box`, `max-width` includes the element's own padding, so a literal `max-width: 1352px` with the 188px desktop gutter as padding was leaving only 976px for actual content — caught by inspecting the rendered content area in DevTools against the Figma value. Figma's 1352px is the _content_ width, excluding the side gutters. `1352 + 2×188 = 1728` (an exact 108rem), so the token is set to 1728px: once the 188px padding is subtracted on each side, the inner content area lands exactly on the spec'd 1352px.
 - **`fluid` variant is unconstrained on purpose** — always `w-full`, no padding, no min/max-width. For full-bleed sections (background bands, edge-to-edge imagery) that nest a `content` Container inside for the actual text/controls, rather than trying to make one container serve both jobs.
 
+## Icons
+
+- **SVG icons import via svgr (`?react`), not `<img src>`** — renders as an inline `<svg>`, stylable directly via `className`/`aria-hidden`. Established in `Chevron`, `MainNav`, `HamburgerMobileMenu`'s close icon, `ProductCard`'s favorites icon; applies to new icon usages going forward, not yet retrofitted everywhere.
+- Most icon assets hardcode stroke/fill color rather than `currentColor`, so svgr alone doesn't make color themeable — see `ProductCard`'s favorites icon for the pattern when that's actually needed (SVG/svgr config updated too).
+
+## Header
+
+- **Old `ui/MainNav.jsx`, `ui/Nav.tsx` deleted.** Foreign Frontend-Mentor "Photosnap" tutorial leftovers — broken asset import paths (`../assets/shared/...`, nonexistent in this project), English placeholder content ("Get an invite", generic Stories/Features/Pricing links), BEM class names with no matching CSS. Unrelated to this project; replaced by the real `layout/MainNav.tsx` (icon cluster) and `layout/HeaderLinks.tsx` (nav links) built from the actual design.
+- **Menu row interactivity: every category/info/utility row in the open mobile menu is a real, inert `<button>` (no onClick), same as the "+"/chevron icons being decorative.** A working accordion (rows that actually expand) would be a second interactive element beyond the assessment's single scoped hamburger menu. If the accordion behavior turns out to be in scope, wiring it in later is a small change (state + conditional render), not a rearchitecture.
+- **SearchBar's `<select>`/`<input>` are real, focusable form controls with no `onChange`/submit handler** — not `disabled`. Matches the existing "form controls are styled but inert" assumption below, applied literally rather than by disabling the controls (disabling would be a worse a11y demonstration for no scope benefit).
+- **Mobile menu overlay is full-viewport and opaque, `<main>` is marked `inert` while it's open, but sibling header content (TopBanner/BrandLogo/HeaderLinks/MainNav) is not.** Targeting `<main>` specifically (not `#root`) keeps the toggle button itself reachable/focusable — inerting an ancestor of the toggle would make it un-clickable to close. Full visual coverage means the un-inerted header siblings aren't visible, but they're still technically tabbable behind the panel. A complete fix needs the open state lifted to a component that can target only the _other_ header children, which isn't needed by anything else right now — flagged as a known follow-up, not silently shipped as "solved."
+- **No animation on menu open/close.** `motion-safe:animate-in`/`fade-in` (Tailwind Animate plugin) aren't installed in this project; adding the dependency wasn't in scope for this change. Follow-up if polish time allows.
+- **`BrandLogo` stayed in `ui/`** (an existing empty stub was already there) even though the rest of the Header build landed in `layout/` — it's a small, genuinely reusable atom (a footer would plausibly reuse it too), unlike `MainNav`/`HeaderLinks`/`SearchBar`/`HamburgerMenu`, which are Header-specific composites.
+
+## ProductCard
+
+- **Favorites icon is a real toggle, not decorative** — local `useState<boolean>` per card, `aria-pressed` on the button. The heart is an svgr component (`favorites.svg?react`, same pattern as `Chevron`) and keeps its own static stroke color unchanged; the circular button wrapping it (`rounded-full`) swaps background color between `--color-beige-100` (off) and `--color-beige-200` (on). Built on explicit instruction; supersedes the earlier "inert to stay within one interactive element" assumption once documented here.
+
 ## Prior assumptions (carried from initial scaffold)
 
 - Figma frame widths (375 / 768 / 1440) are reference points, not hard breakpoints; layout adapts at content-driven breakpoints between them.
