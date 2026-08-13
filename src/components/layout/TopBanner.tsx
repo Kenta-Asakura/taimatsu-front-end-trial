@@ -2,7 +2,7 @@ export function TopBanner() {
   return (
     <div
       className={
-        'border-b border-(--color-gray-100) bg-(--color-surface) px-[55px] py-[5px] md:border-(--color-white) md:bg-(--color-gray-100) md:py-2.5'
+        'border-b border-(--color-gray-100) bg-(--color-surface) px-[55px] py-[5px] md:border-(--color-border) md:bg-(--color-gray-200) md:py-2.5'
       }
     >
       <p className="text-body-xs md:text-body-sm flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-bold">
