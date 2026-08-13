@@ -12,9 +12,16 @@ Open questions for the designer, logged as they come up during token extraction 
 
 - ~~Container mobile min-width (362px) vs. the 320px WCAG 1.4.10 reflow floor~~ — resolved: container has no mobile floor, always full available width up to the desktop max. See `decisions.md`.
 - (carried over from the project plan, not yet asked) What happens between 768–1024px if only mobile and desktop frames exist in the file?
-- Is the header sticky on scroll, and if so does its appearance change?
+- Is the header sticky on scroll, and if so does its appearance change? Built as static/non-sticky for now — flagged, not yet resolved.
 - Mobile menu: full-screen overlay vs. slide-in drawer — not drawn in the file; see `docs/decisions.md` for the assumption in use.
 
 ## AnnouncementList
 
 - Spacing/border/text size are estimated, not measured in Figma.
+
+## Header (built from screenshots, not measured directly in Figma — no file access for this pass)
+
+- All Header sizing (logo height, icon dimensions beyond their native SVG size, row padding, gray-100 vs. white background split at md) is estimated from the provided screenshots, not measured. Needs a real pass measuring directly in Figma to confirm px values before calling this pixel-verified.
+- ~~Desktop nav grouping: 食品's larger gap incidental or a second divider?~~ resolved: modeled as a real third group with its own divider in `HeaderLinks.tsx`.
+- Mobile menu's 7 category rows all reuse one existing placeholder image (`clothing-cotton-inner.jpg`) rather than the model photo shown in the screenshot — matches this project's established "one real asset repeated" convention (see `App.tsx`), not a claim that the thumbnail is correct per-category.
+- Are the mobile menu's "+"-suffixed rows meant to actually expand (real accordion), or are they static/decorative like the rest of this static site? Built as decorative for now — see `docs/decisions.md`.
