@@ -47,7 +47,7 @@ function App() {
       <Header />
 
       <main id="main-content" className="flex flex-col">
-        <section className="py-[15px] md:py-6">
+        <section>
           <AnnouncementList />
         </section>
 
