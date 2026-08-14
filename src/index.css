@@ -19,6 +19,7 @@
 
   --color-brand-black: #3c3c43;
   --color-brand-red: #7f0019;
+  --color-brand-red-dark: #6b051e;
   --color-border: var(--color-gray-100);
 
   /* Colors — semantic aliases, what components actually consume */
