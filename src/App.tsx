@@ -12,6 +12,7 @@ import productImg from '@/assets/images/product.jpg'
 import productImg2x from '@/assets/images/product@2x.jpg'
 
 import { Button } from '@/components/ui/Button'
+import { LinkArrowButton } from './components/ui/LinkArrowButton'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
@@ -74,6 +75,7 @@ function App() {
               <Button variant="main">主要ボタン</Button>
               <Button variant="secondary">サブボタン</Button>
               <Button variant="tertiary">検索</Button>
+              <LinkArrowButton>Test</LinkArrowButton>
             </div>
           </Container>
         </section>
