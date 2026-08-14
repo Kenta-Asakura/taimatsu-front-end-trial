@@ -51,6 +51,10 @@
   --text-heading-md--line-height: 1;
   --text-heading-md--font-weight: 700;
 
+  --text-heading-sm: 1.375rem; /* 22px — SectionHeader mobile size */
+  --text-heading-sm--line-height: 1;
+  --text-heading-sm--font-weight: 700;
+
   --font-sans:
     'Inter', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
 
