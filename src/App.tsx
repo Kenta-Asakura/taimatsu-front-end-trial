@@ -49,7 +49,10 @@ function App() {
       <TopBanner />
       <Header />
 
-      <main id="main-content" className="flex flex-col bg-(--color-surface) md:bg-(--color-gray-200)">
+      <main
+        id="main-content"
+        className="flex flex-col bg-(--color-surface) md:bg-(--color-gray-200)"
+      >
         <section>
           <AnnouncementList />
         </section>
@@ -106,14 +109,14 @@ function App() {
             <h2 className="text-heading-md text-(--color-ink)">New Products</h2>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: NEW_PRODUCTS_COUNT }, (_, i) => (
-                <ProductCard 
+                <ProductCard
                   key={i}
-                  imageSrc={productImg} 
+                  imageSrc={productImg}
                   imageSrc2x={productImg2x}
-                  imageAlt="" 
-                  badgeLabel="NEW" 
-                  name="ワイヤレスヘッドホン　ノイズキャンセル機能付" 
-                  price={6990} 
+                  imageAlt=""
+                  badgeLabel="NEW"
+                  name="ワイヤレスヘッドホン　ノイズキャンセル機能付"
+                  price={6990}
                 />
               ))}
             </div>
