@@ -20,6 +20,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { TopBanner } from './components/layout/TopBanner'
 import { AnnouncementList } from './components/layout/AnnouncementList'
 import { Header } from './components/layout/Header'
+import { StoreSearch } from './components/layout/StoreSearch'
 // import { Chevron } from './components/ui/Chevron'
 
 // Header is real; everything below is still scaffold-verification —
@@ -198,8 +199,10 @@ function App() {
         </section>
 
         {/* Store Search */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
-          <Placeholder label="Store Search" />
+        <section className="pt-15 md:py-(--spacing-section-gap-desktop) bg-gray-50 md:bg-inherit">
+          <Container>
+            <StoreSearch />
+          </Container>
         </section>
 
         <footer>
