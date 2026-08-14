@@ -16,6 +16,7 @@ import { LinkArrowButton } from './components/ui/LinkArrowButton'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { ImageCard } from '@/components/ui/ImageCard'
 import { Container } from '@/components/ui/Container'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 import { TopBanner } from './components/layout/TopBanner'
 import { AnnouncementList } from './components/layout/AnnouncementList'
 import { Header } from './components/layout/Header'
@@ -70,7 +71,7 @@ function App() {
 
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Buttons</h2>
+            <SectionHeader>Buttons</SectionHeader>
             <div className="flex flex-wrap items-center gap-4">
               <Button variant="main">主要ボタン</Button>
               <Button variant="secondary">サブボタン</Button>
@@ -89,7 +90,7 @@ function App() {
         {/* Categories */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Categories</h2>
+            <SectionHeader>Categories</SectionHeader>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: CATEGORIES_COUNT }, (_, i) => (
                 <ImageCard
@@ -108,7 +109,7 @@ function App() {
         {/* New Products */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">New Products</h2>
+            <SectionHeader>New Products</SectionHeader>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: NEW_PRODUCTS_COUNT }, (_, i) => (
                 <ProductCard
@@ -128,7 +129,7 @@ function App() {
         {/* Pickups */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Pickups</h2>
+            <SectionHeader>Pickups</SectionHeader>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: PICKUPS_COUNT }, (_, i) => (
                 <ImageCard
@@ -147,7 +148,7 @@ function App() {
         {/* Features */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Features</h2>
+            <SectionHeader>Features</SectionHeader>
             <ImageCard
               variant="feature"
               imageSrc={seasonalImg}
@@ -161,7 +162,7 @@ function App() {
         {/* Brands */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Brands</h2>
+            <SectionHeader>Brands</SectionHeader>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: BRANDS_COUNT }, (_, i) => (
                 <ImageCard
@@ -180,7 +181,7 @@ function App() {
         {/* Articles */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
-            <h2 className="text-heading-md text-(--color-ink)">Articles</h2>
+            <SectionHeader>Articles</SectionHeader>
             <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
               {Array.from({ length: ARTICLES_COUNT }, (_, i) => (
                 <ImageCard
