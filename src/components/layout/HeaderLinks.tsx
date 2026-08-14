@@ -10,7 +10,7 @@ const linkGroups: readonly (readonly string[])[] = [
 ]
 
 // Desktop-only; mobile uses HamburgerMenu. Inert <button>s, not href="#" —
-// same convention as Button/LinkButton (see docs/decisions.md).
+// same convention as Button/LinkArrowButton (see docs/decisions.md).
 export function HeaderLinks({ className = '' }: HeaderLinksProps) {
   return (
     <nav className={className}>

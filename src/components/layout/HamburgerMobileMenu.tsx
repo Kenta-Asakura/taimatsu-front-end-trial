@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import CloseIcon from '@/assets/icons/close.svg?react'
 import PlusIcon from '@/assets/icons/plus.svg?react'
 import categoryThumb from '@/assets/images/nav-product-category@2x.jpg'
-import { Chevron } from '@/components/ui/Chevron'
+import { LinkArrowButton } from '@/components/ui/LinkArrowButton'
 
 // Every row shares one repeated placeholder thumbnail
 const categoryLinks = [
@@ -127,13 +127,9 @@ export function HamburgerMobileMenu({
             key={label}
             className="flex h-20 items-center border-b border-(--color-border) pr-4.25 pl-2.5"
           >
-            <button
-              type="button"
-              className="flex w-full items-center justify-between"
-            >
+            <LinkArrowButton className="font-normal text-(--color-ink)">
               {label}
-              <Chevron direction="right" className="font- text-(--color-ink)" />
-            </button>
+            </LinkArrowButton>
           </li>
         ))}
       </ul>
