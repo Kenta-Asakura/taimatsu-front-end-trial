@@ -34,7 +34,7 @@ export function Brands({ entries, storeLabels }: BrandsProps) {
         ))}
       </div>
 
-      <div className="mt-12 md:mt-8 flex w-full flex-col gap-(--spacing-card-gap-mobile) self-stretch md:flex-row md:gap-(--spacing-card-gap-desktop)">
+      <div className="mt-12 flex w-full flex-col gap-(--spacing-card-gap-mobile) self-stretch md:mt-8 md:flex-row md:gap-(--spacing-card-gap-desktop)">
         {storeLabels.map((label, i) => (
           <Button key={i} variant="secondary">
             {label}
