@@ -26,6 +26,7 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { TopBanner } from './components/layout/TopBanner'
 import { AnnouncementList } from './components/layout/AnnouncementList'
+import { Brands, type BrandEntry } from './components/layout/Brands'
 import { Categories, type CategoryEntry } from './components/layout/Categories'
 import { Features, type FeatureEntry } from './components/layout/Features'
 import { Footer } from './components/layout/Footer'
@@ -69,6 +70,19 @@ const CATEGORIES: CategoryEntry[] = CATEGORY_LABELS.map((label) => ({
   imageAlt: label,
   label,
 }))
+
+// One real asset repeated, per the convention above.
+const BRANDS: BrandEntry[] = Array.from({ length: BRANDS_COUNT }, () => ({
+  imageSrc: brandsImg,
+  imageSrc2x: brandsImg2x,
+  imageAlt: '',
+  label: 'IDÉE SHOP Online',
+}))
+
+const BRAND_STORE_BUTTON_LABELS = Array.from(
+  { length: BRAND_STORE_COUNT },
+  () => '店舗情報',
+)
 
 // Only one real hero photo exists, so all three slides repeat it for now —
 // see docs/design-questions.md.
@@ -227,8 +241,7 @@ function App() {
 
         {/* Categories */}
         <section className="border-b border-(--color-border) py-[24px] md:pt-[64px] md:pb-[98px]">
-          <Container className="flex flex-col gap-3">
-            <SectionHeader>Categories</SectionHeader>
+          <Container className="flex flex-col">
             <Categories entries={CATEGORIES} />
           </Container>
         </section>
@@ -268,27 +281,8 @@ function App() {
 
         {/* Brands */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
-          <Container className="flex flex-col gap-3">
-            <SectionHeader>Brands</SectionHeader>
-            <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
-              {Array.from({ length: BRANDS_COUNT }, (_, i) => (
-                <ImageCard
-                  key={i}
-                  variant="brands"
-                  imageSrc={brandsImg}
-                  imageSrc2x={brandsImg2x}
-                  imageAlt=""
-                  label="IDÉE SHOP Online"
-                />
-              ))}
-            </div>
-            <div className="flex w-full flex-col gap-(--spacing-card-gap-mobile) self-stretch md:flex-row md:gap-(--spacing-card-gap-desktop)">
-              {Array.from({ length: BRAND_STORE_COUNT }, (_, i) => (
-                <Button key={i} variant="secondary">
-                  店舗情報
-                </Button>
-              ))}
-            </div>
+          <Container>
+            <Brands entries={BRANDS} storeLabels={BRAND_STORE_BUTTON_LABELS} />
           </Container>
         </section>
 
