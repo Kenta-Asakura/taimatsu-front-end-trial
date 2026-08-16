@@ -19,6 +19,7 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { TopBanner } from './components/layout/TopBanner'
 import { AnnouncementList } from './components/layout/AnnouncementList'
+import { Categories, type CategoryEntry } from './components/layout/Categories'
 import { Header } from './components/layout/Header'
 import { StoreSearch } from './components/layout/StoreSearch'
 // import { Chevron } from './components/ui/Chevron'
@@ -27,11 +28,34 @@ import { StoreSearch } from './components/layout/StoreSearch'
 // replaced section-by-section as each one is built.
 
 // Each section repeats its one real card as many times as the design shows
-const CATEGORIES_COUNT = 12
 const NEW_PRODUCTS_COUNT = 6
 const PICKUPS_COUNT = 12
 const BRANDS_COUNT = 4
 const ARTICLES_COUNT = 4
+
+// Same "one real asset repeated" convention as the other placeholder
+// sections below — only the label/alt vary per category for now.
+const CATEGORY_LABELS = [
+  '婦人・レディース',
+  '紳士・メンズ',
+  'こども',
+  'コスメ・ケア',
+  'アロマ・ルームフレグランス',
+  '生活雑貨',
+  '家具・収納・家電',
+  '収納用品・収納ケース',
+  '収納棚・収納ラック',
+  '寝具',
+  'ベッド・マットレス',
+  '食品',
+]
+
+const CATEGORIES: CategoryEntry[] = CATEGORY_LABELS.map((label) => ({
+  imageSrc: categoriesImg,
+  imageSrc2x: categoriesImg2x,
+  imageAlt: label,
+  label,
+}))
 
 // Page IA (top to bottom): Header, Notice, Hero, Categories, New Products,
 // Pickups, Features, Brands, Articles, Store Search, Footer. Sections with
@@ -92,18 +116,7 @@ function App() {
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container className="flex flex-col gap-3">
             <SectionHeader>Categories</SectionHeader>
-            <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
-              {Array.from({ length: CATEGORIES_COUNT }, (_, i) => (
-                <ImageCard
-                  key={i}
-                  variant="categories"
-                  imageSrc={categoriesImg}
-                  imageSrc2x={categoriesImg2x}
-                  imageAlt=""
-                  label="家具・収納・家電"
-                />
-              ))}
-            </div>
+            <Categories entries={CATEGORIES} />
           </Container>
         </section>
 
