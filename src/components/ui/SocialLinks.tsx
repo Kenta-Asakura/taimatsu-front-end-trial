@@ -28,7 +28,9 @@ type SocialLinksProps = {
 // No real profile URLs yet — same inert-when-no-href pattern as Button/LinkArrowButton (WCAG 2.4.4).
 export function SocialLinks({ className = '' }: SocialLinksProps) {
   return (
-    <ul className={`flex items-center gap-3 ${className}`.trim()}>
+    <ul
+      className={`flex items-center justify-between max-xl:max-w-90.75 md:gap-x-5 ${className}`.trim()}
+    >
       {socialLinks.map(({ name, Icon, href }) => (
         <li key={name}>
           {href ? (

@@ -127,4 +127,26 @@
     background-color: var(--color-ink-muted);
     border-radius: 9999px;
   }
+
+  /* Named grid areas reorder Footer's items per breakpoint — flex `order` can't interleave them like this. */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo'
+      'links'
+      'legal'
+      'social'
+      'copyright';
+  }
+
+  @media (min-width: 1280px) {
+    .footer-grid {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        'logo links'
+        'social links'
+        'legal copyright';
+    }
+  }
 }
