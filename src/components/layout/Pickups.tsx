@@ -16,10 +16,10 @@ type PickupsProps = {
 // as Categories/Brands/Features/NewProducts.
 export function Pickups({ entries }: PickupsProps) {
   return (
-    <div className="flex flex-col gap-3">
-      <SectionHeader>Pickups</SectionHeader>
+    <div className="flex flex-col">
+      <SectionHeader className="mb-6">ピックアップ</SectionHeader>
 
-      <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+      <div className="flex flex-wrap justify-center gap-x-(--spacing-card-gap-mobile) gap-y-(--spacing-row-gap-mobile) md:gap-x-(--spacing-card-gap-desktop) md:gap-y-(--spacing-row-gap-desktop)">
         {entries.map((entry, i) => (
           <ImageCard
             key={i}

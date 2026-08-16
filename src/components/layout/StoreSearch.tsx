@@ -16,10 +16,10 @@ export function StoreSearch() {
   const inputId = useId()
 
   return (
-    <div className="flex flex-col gap-6">
-      <SectionHeader>店舗を探す</SectionHeader>
+    <div className="flex flex-col pt-15 md:pt-16">
+      <SectionHeader className="mb-3.5 md:mb-8">店舗を探す</SectionHeader>
 
-      <div className="flex flex-col gap-3">
+      <div className="mb-10 flex flex-col gap-3 md:mb-6">
         <label
           htmlFor={inputId}
           className="text-body-xs md:text-body-sm block text-(--color-ink-muted)"
