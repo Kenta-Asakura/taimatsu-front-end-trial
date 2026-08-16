@@ -26,10 +26,14 @@ const variantConfig: Record<
     containerClassName: 'w-[80px] md:w-[205px]',
     imageClassName: 'h-[80px] w-full md:h-[205px]',
   },
+  // Mobile width corrected from a measured 174px: two cards at 174px plus
+  // the card gap overflow the 345px mobile content width (15px gutters on
+  // 375px). 165px is the exact fit for two-per-row at the existing gap
+  // token; height scaled to preserve the measured 174:109 aspect ratio.
   brands: {
     align: 'left',
-    containerClassName: 'w-[174px] md:w-[320px]',
-    imageClassName: 'h-[109px] w-full md:h-[200px]',
+    containerClassName: 'w-[165px] md:w-[320px]',
+    imageClassName: 'h-[103px] w-full md:h-[200px]',
   },
   articles: {
     align: 'left',

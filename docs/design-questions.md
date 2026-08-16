@@ -15,6 +15,11 @@ Open questions for the designer, logged as they come up during token extraction 
 - Is the header sticky on scroll, and if so does its appearance change? Built as static/non-sticky for now — flagged, not yet resolved.
 - Mobile menu: full-screen overlay vs. slide-in drawer — not drawn in the file; see `docs/decisions.md` for the assumption in use.
 
+## Hero
+
+- Slide count, peek-slide width, and slide gap are estimated from the provided screenshots, not measured directly in Figma. Needs a real pass to confirm px values.
+- Only one hero photo asset exists, so the desktop track's 3 "slides" and the mobile view all repeat it — not a claim that later slides would show different content in the final design.
+
 ## AnnouncementList
 
 - Spacing/border/text size are estimated, not measured in Figma.

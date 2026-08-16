@@ -25,7 +25,7 @@ export function ProductCard({
   const [isFavorite, setIsFavorite] = useState(false)
 
   return (
-    <div className="flex h-60.75 w-27.75 flex-col md:h-77.25 md:w-51.5">
+    <div className="flex h-60.75 w-27.75 shrink-0 flex-col md:h-77.25 md:w-51.5">
       <div className="relative">
         <img
           src={imageSrc}

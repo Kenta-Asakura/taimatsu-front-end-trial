@@ -14,7 +14,7 @@ const announcements: Announcement[] = [
 
 export function AnnouncementList() {
   return (
-    <div className="bg-(--color-surface) py-[15px] md:bg-gray-200 md:py-6">
+    <div className="py-[15px] md:py-6">
       <Container>
         <ul className="flex flex-col gap-y-5 bg-gray-50 px-1.25 py-4.5">
           {announcements.map((announcement, index) => (
