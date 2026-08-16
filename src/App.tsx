@@ -42,50 +42,50 @@ function App() {
         </section>
 
         {/* Categories */}
-        <section className="border-b border-(--color-border) py-[24px] md:pt-[64px] md:pb-[98px]">
-          <Container className="flex flex-col">
+        <section className="border-b border-(--color-border) py-[24px] md:pt-16 md:pb-24.5">
+          <Container>
             <Categories entries={CATEGORIES} />
           </Container>
         </section>
 
         {/* New Products */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
+        <section className="pt-16 md:pt-17">
           <Container>
             <NewProducts products={NEW_PRODUCTS} />
           </Container>
         </section>
 
         {/* Pickups */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
+        <section className="pt-15.25 pb-16.5 md:pt-16 md:pb-20">
           <Container>
             <Pickups entries={PICKUPS} />
           </Container>
         </section>
 
         {/* Features */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
+        <section className="bg-beige-50 py-10 md:pt-20 md:pb-24">
           <Container>
             <Features entries={FEATURES} />
           </Container>
         </section>
 
         {/* Brands */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
+        <section className="pt-16">
           <Container>
             <Brands entries={BRANDS} storeLabels={BRAND_STORE_LABELS} />
           </Container>
         </section>
 
         {/* Articles */}
-        <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
+        <section className="pt-16">
           <Container>
             <Articles entries={ARTICLES} />
           </Container>
         </section>
 
         {/* Store Search */}
-        <section className="bg-gray-50 pt-15 md:bg-inherit md:py-(--spacing-section-gap-desktop)">
-          <Container>
+        <section className="pb-16">
+          <Container className="bg-gray-50 md:bg-inherit">
             <StoreSearch />
           </Container>
         </section>

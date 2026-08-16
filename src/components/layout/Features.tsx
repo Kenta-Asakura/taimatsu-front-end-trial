@@ -16,14 +16,9 @@ type FeaturesProps = {
   entries: FeatureEntry[]
 }
 
-// Category nav is derived from `entries`, not a separate prop — the two
-// lists are always 1:1 here, so keeping one source avoids the nav/content
-// drift the project's own nav-links convention warns about.
-//
-// Nav row is real, focusable, inert buttons (no onClick/filtering) — same
-// "static/decorative" convention as HamburgerMenu's category rows and
-// StoreSearch's browse list (see docs/decisions.md); no tablist/aria-selected
-// semantics since nothing actually switches.
+// Nav is derived from `entries` (kept 1:1, avoids nav/content drift) and
+// stays inert, same static convention as HamburgerMenu/StoreSearch (see
+// docs/decisions.md).
 export function Features({ entries }: FeaturesProps) {
   return (
     <div className="flex flex-col gap-6 md:gap-8">
