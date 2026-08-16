@@ -42,25 +42,16 @@ const legalLinks = ['プライバシーポリシー', '外部送信ポリシー'
 // Inert <button>s, same convention as HeaderLinks/LinkArrowButton (WCAG 2.4.4).
 export function Footer() {
   return (
-    <footer className="bg-(--color-gray-50)">
-      <Container className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between md:gap-8">
-          {/* `contents` on mobile un-boxes this wrapper so BrandLogo/SocialLinks
-              become direct flex items of the outer container and can be
-              reordered independently (mobile: logo, links, social — desktop:
-              logo+social grouped, links beside). A second <SocialLinks>
-              instance was tried instead but duplicates its icons' SVG
-              pattern/image ids, breaking the second instance's fills. */}
-          <div className="contents md:flex md:flex-col md:gap-6">
-            <BrandLogo className="order-1 h-8 w-32 md:order-none md:h-9 md:w-36" />
-            <SocialLinks className="order-3 md:order-none" />
-          </div>
+    <footer className="bg-gray-50">
+      <Container className="pt-6 pb-40.5 xl:pt-12.25 xl:pb-16.25">
+        <div className="footer-grid min-h-57.5">
+          <BrandLogo className="h-7.25 w-24 [grid-area:logo] max-xl:mb-5.25 xl:h-[39px] xl:w-32" />
 
-          <div className="order-2 flex flex-col gap-8 md:order-none md:flex-row md:gap-16">
+          <div className="mb-6 flex flex-col flex-wrap gap-6 [grid-area:links] xl:mb-10.5 xl:flex-row">
             {linkColumns.map((links, columnIndex) => (
               <ul
                 key={columnIndex}
-                className="flex flex-row flex-wrap gap-x-4 gap-y-3 md:flex-col md:gap-3"
+                className="flex flex-1 flex-row flex-wrap gap-x-4 xl:flex-col xl:gap-3 xl:gap-y-3"
               >
                 {links.map((label) => (
                   <li key={label}>
@@ -75,10 +66,8 @@ export function Footer() {
               </ul>
             ))}
           </div>
-        </div>
 
-        <div className="mt-10 flex flex-col gap-4 md:mt-16 md:flex-row md:items-center md:justify-between">
-          <ul className="flex flex-wrap gap-x-4 gap-y-2">
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 [grid-area:legal] xl:self-center">
             {legalLinks.map((label) => (
               <li key={label}>
                 <button
@@ -91,7 +80,9 @@ export function Footer() {
             ))}
           </ul>
 
-          <p className="text-body-sm leading-normal text-(--color-ink-muted)">
+          <SocialLinks className="mb-10 items-end [grid-area:social] max-xl:mt-8.25 xl:mb-9" />
+
+          <p className="text-body-sm leading-normal text-(--color-ink-muted) [grid-area:copyright] xl:self-center xl:justify-self-end">
             Copyright ©BRAND Co., Ltd.
           </p>
         </div>
