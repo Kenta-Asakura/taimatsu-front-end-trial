@@ -26,22 +26,24 @@ export function StoreSearch() {
         >
           キーワードで探す
         </label>
-        
-        <div className="flex items-stretch gap-1.75 md:gap-3 h-12 md:h-13">
+
+        <div className="flex h-12 items-stretch gap-1.75 md:h-13 md:gap-3">
           <SearchInput
             id={inputId}
             placeholder="店名、住所"
-            className="flex-1 rounded-(--radius-custom-sm) border border-(--color-border) px-3 bg-(--color-white) md:bg-transparent"
+            className="flex-1 rounded-(--radius-custom-sm) border border-(--color-border) bg-(--color-white) px-3 md:bg-transparent"
           />
-          <Button variant="tertiary" className='h-full md:h-full'>検索</Button>
+          <Button variant="tertiary" className="h-full md:h-full">
+            検索
+          </Button>
         </div>
       </div>
 
-      <ul className="flex flex-wrap flex-col md:flex-row -mx-(--spacing-gutter-mobile) md:mx-0">
+      <ul className="-mx-(--spacing-gutter-mobile) flex flex-col flex-wrap md:mx-0 md:flex-row">
         {browseLinks.map((label) => (
           <li
             key={label}
-            className="flex-1 flex align-center min-h-15.25 md:w-[320px] px-[15px] border-b md:border-b-[3px] border-(--color-border) md:border-transparent transition-colors duration-200 hover:border-(--color-ink-muted)"
+            className="align-center flex min-h-15.25 flex-1 border-b border-(--color-border) px-[15px] transition-colors duration-200 hover:border-(--color-ink-muted) md:w-[320px] md:border-b-[3px] md:border-transparent"
           >
             <LinkArrowButton>{label}</LinkArrowButton>
           </li>

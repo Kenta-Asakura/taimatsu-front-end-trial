@@ -199,7 +199,7 @@ function App() {
         </section>
 
         {/* Store Search */}
-        <section className="pt-15 md:py-(--spacing-section-gap-desktop) bg-gray-50 md:bg-inherit">
+        <section className="bg-gray-50 pt-15 md:bg-inherit md:py-(--spacing-section-gap-desktop)">
           <Container>
             <StoreSearch />
           </Container>
