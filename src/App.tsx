@@ -227,8 +227,7 @@ function App() {
 
         {/* Categories */}
         <section className="border-b border-(--color-border) py-[24px] md:pt-[64px] md:pb-[98px]">
-          <Container className="flex flex-col gap-3">
-            <SectionHeader>Categories</SectionHeader>
+          <Container className="flex flex-col">
             <Categories entries={CATEGORIES} />
           </Container>
         </section>
