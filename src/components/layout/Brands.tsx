@@ -18,10 +18,10 @@ type BrandsProps = {
 // as Categories/Features/NewProducts.
 export function Brands({ entries, storeLabels }: BrandsProps) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col">
       <SectionHeader>Brands</SectionHeader>
 
-      <div className="flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
+      <div className="mt-6 flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
         {entries.map((entry, i) => (
           <ImageCard
             key={i}
@@ -34,7 +34,7 @@ export function Brands({ entries, storeLabels }: BrandsProps) {
         ))}
       </div>
 
-      <div className="flex w-full flex-col gap-(--spacing-card-gap-mobile) self-stretch md:flex-row md:gap-(--spacing-card-gap-desktop)">
+      <div className="mt-12 md:mt-8 flex w-full flex-col gap-(--spacing-card-gap-mobile) self-stretch md:flex-row md:gap-(--spacing-card-gap-desktop)">
         {storeLabels.map((label, i) => (
           <Button key={i} variant="secondary">
             {label}

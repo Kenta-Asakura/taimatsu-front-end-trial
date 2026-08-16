@@ -79,7 +79,7 @@ const BRANDS: BrandEntry[] = Array.from({ length: BRANDS_COUNT }, () => ({
   label: 'IDÉE SHOP Online',
 }))
 
-const BRAND_STORE_LABELS = Array.from(
+const BRAND_STORE_BUTTON_LABELS = Array.from(
   { length: BRAND_STORE_COUNT },
   () => '店舗情報',
 )
@@ -282,7 +282,7 @@ function App() {
         {/* Brands */}
         <section className="pt-(--spacing-section-gap-mobile) pb-(--spacing-section-gap-mobile) md:pt-(--spacing-section-gap-desktop) md:pb-(--spacing-section-gap-desktop)">
           <Container>
-            <Brands entries={BRANDS} storeLabels={BRAND_STORE_LABELS} />
+            <Brands entries={BRANDS} storeLabels={BRAND_STORE_BUTTON_LABELS} />
           </Container>
         </section>
 
