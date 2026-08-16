@@ -51,6 +51,12 @@ Rationale for calls made without designer sign-off, so they read as decisions ra
 - **All desktop slides share one explicit height (`md:h-[790px]`) instead of `aspect-square`.** `aspect-square` ties each slide's height to its own width, so the 290px peek slides rendered visibly shorter than the 790px active one — the peeks looked cropped/misaligned next to it. Same height across all three, width varies instead.
 - **Slides use the standard `imageSrc`/`imageSrc2x` → `srcSet` pattern** (see `ImageCard`/`ProductCard`), same as every other section. An earlier layout displayed slides at 790px — wider than the `1x` export (640px) — which caused upscale blur when density-descriptor selection picked the `1x` asset; that's why `src2x`-only was used at the time. Slides now render at 640px (`h-160`), matching the `1x` export's native size, so the standard pattern applies again.
 
+## Section content (`src/data/`)
+
+- **Every section's content lives in its own file under `src/data/`, imported into `App.tsx` as a literal array** — `categories.ts`, `brands.ts`, `hero.ts`, `newProducts.ts`, `pickups.ts`, `articles.ts`, `features.ts`. `App.tsx` composes `<Component entries={DATA} />`; it no longer holds image imports or content arrays itself, keeping the page-composition file readable as sections grow.
+- **Data is a literal array of entries, not a generator (`Array.from`/`.map`) over a shared template.** An early pass generated repeated demo entries programmatically, which meant no single item could be edited without changing the template every entry shared. Each entry is now written out individually — still repeating the one available photo per section for demo purposes, but any one entry's image/label/price can be swapped without touching the others.
+- **`Pickups` and `Articles` were extracted into their own layout components** (previously inline `ImageCard` loops in `App.tsx`) so all seven content sections follow one consistent shape: a presentation-only component in `layout/` paired with a same-named data file — matching the `Categories`/`Brands`/`Features`/`NewProducts` pattern already in place.
+
 ## Prior assumptions (carried from initial scaffold)
 
 - Figma frame widths (375 / 768 / 1440) are reference points, not hard breakpoints; layout adapts at content-driven breakpoints between them.
