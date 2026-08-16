@@ -104,3 +104,27 @@
     background: var(--color-surface);
   }
 }
+
+@layer components {
+  /* Thin horizontal scrollbar for card rows (e.g. NewProducts) — no Tailwind
+     utility covers ::-webkit-scrollbar, so it's hand-written here rather
+     than reached for as an @apply cluster. */
+  .scrollbar-thin-ink {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ink-muted) var(--color-border);
+  }
+
+  .scrollbar-thin-ink::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .scrollbar-thin-ink::-webkit-scrollbar-track {
+    background-color: var(--color-border);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin-ink::-webkit-scrollbar-thumb {
+    background-color: var(--color-ink-muted);
+    border-radius: 9999px;
+  }
+}
