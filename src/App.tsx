@@ -77,7 +77,7 @@ function App() {
         </section>
 
         {/* Articles */}
-        <section className="pt-16">
+        <section className="py-16">
           <Container>
             <Articles entries={ARTICLES} />
           </Container>

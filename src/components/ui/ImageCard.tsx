@@ -23,8 +23,8 @@ const variantConfig: Record<
   // Pickups, Brands, and Articles card: image fills the container, portrait ratio.
   pickups: {
     align: 'left',
-    containerClassName: 'w-[80px] md:w-[205px]',
-    imageClassName: 'h-[80px] w-full md:h-[205px]',
+    containerClassName: 'w-[79px] md:w-[205px]',
+    imageClassName: 'h-[79px] w-full md:h-[205px]',
   },
   // Mobile width corrected from a measured 174px: two cards at 174px plus
   // the card gap overflow the 345px mobile content width (15px gutters on

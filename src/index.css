@@ -106,26 +106,46 @@
 }
 
 @layer components {
-  /* Thin horizontal scrollbar for card rows (e.g. NewProducts) — no Tailwind
-     utility covers ::-webkit-scrollbar, so it's hand-written here rather
-     than reached for as an @apply cluster. */
-  .scrollbar-thin-ink {
+  /* Thin horizontal scrollbars for card/tab rows (no Tailwind utility
+     covers ::-webkit-scrollbar). .scrollbar-products/-features set only
+     the custom properties below; the actual rules are shared. */
+  .scrollbar-products,
+  .scrollbar-features {
+    --scrollbar-thumb: var(--color-brand-black);
+    --scrollbar-radius: 0;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-ink-muted) var(--color-border);
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 
-  .scrollbar-thin-ink::-webkit-scrollbar {
-    height: 4px;
+  .scrollbar-products::-webkit-scrollbar,
+  .scrollbar-features::-webkit-scrollbar {
+    height: var(--scrollbar-height);
   }
 
-  .scrollbar-thin-ink::-webkit-scrollbar-track {
-    background-color: var(--color-border);
-    border-radius: 9999px;
+  .scrollbar-products::-webkit-scrollbar-track,
+  .scrollbar-features::-webkit-scrollbar-track {
+    /* 100%, not var(--scrollbar-height) — keeps the thumb matched even if
+       a browser clamps the requested height to a minimum. */
+    height: 100%;
+    background-color: var(--scrollbar-track);
+    border-radius: var(--scrollbar-radius);
   }
 
-  .scrollbar-thin-ink::-webkit-scrollbar-thumb {
-    background-color: var(--color-ink-muted);
-    border-radius: 9999px;
+  .scrollbar-products::-webkit-scrollbar-thumb,
+  .scrollbar-features::-webkit-scrollbar-thumb {
+    height: 100%;
+    background-color: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
+  }
+
+  .scrollbar-products {
+    --scrollbar-track: var(--color-border);
+    --scrollbar-height: 4px;
+  }
+
+  .scrollbar-features {
+    --scrollbar-track: var(--color-gray-100);
+    --scrollbar-height: 1px;
   }
 
   /* Named grid areas reorder Footer's items per breakpoint — flex `order` can't interleave them like this. */

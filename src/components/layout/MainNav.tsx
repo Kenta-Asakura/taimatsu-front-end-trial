@@ -17,26 +17,26 @@ type MainNavProps = {
 export function MainNav({ className = '' }: MainNavProps) {
   return (
     <div className={`flex items-center gap-5 md:gap-8 ${className}`.trim()}>
-      <SearchIcon aria-hidden="true" className="size-5" />
+      <SearchIcon aria-hidden="true" className="size-3.5" />
 
-      <ProfileIcon aria-hidden="true" className="size-5" />
+      <ProfileIcon aria-hidden="true" className="h-4.25 w-4" />
 
-      <FavoritesIcon aria-hidden="true" className="size-5" />
+      <FavoritesIcon aria-hidden="true" className="h-4.25 w-4.5" />
 
-      <span className="relative inline-flex size-5">
+      <span className="relative inline-flex h-[15px] w-4.5">
         <CartIcon aria-hidden="true" className="size-5" />
 
         <span
           aria-hidden="true"
-          className="text-body-xs absolute -top-1 left-[55%] -translate-x-1/2 leading-none font-semibold text-(--color-ink)"
+          className="text-body-xs absolute -top-0.5 left-[55%] -translate-x-1/2 leading-none font-semibold text-(--color-ink)"
         >
           0
         </span>
       </span>
 
-      <FaqIcon aria-hidden="true" className="size-5" />
+      <FaqIcon aria-hidden="true" className="h-4.5 w-4.5" />
 
-      <InfoIcon aria-hidden="true" className="hidden size-5 md:block" />
+      <InfoIcon aria-hidden="true" className="hidden h-4.5 w-4.5 md:block" />
     </div>
   )
 }

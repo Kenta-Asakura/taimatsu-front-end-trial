@@ -45,7 +45,9 @@ export function Footer() {
     <footer className="bg-gray-50">
       <Container className="pt-6 pb-40.5 xl:pt-12.25 xl:pb-16.25">
         <div className="footer-grid min-h-57.5">
-          <BrandLogo className="h-7.25 w-24 [grid-area:logo] max-xl:mb-5.25 xl:h-[39px] xl:w-32" />
+          <div className="md:max-w-67">
+            <BrandLogo className="h-7.25 w-24 [grid-area:logo] max-xl:mb-5.25 xl:h-[39px] xl:w-32" />
+          </div>
 
           <div className="mb-6 flex flex-col flex-wrap gap-6 [grid-area:links] xl:mb-10.5 xl:flex-row">
             {linkColumns.map((links, columnIndex) => (
@@ -80,7 +82,9 @@ export function Footer() {
             ))}
           </ul>
 
-          <SocialLinks className="mb-10 items-end [grid-area:social] max-xl:mt-8.25 xl:mb-9" />
+          <div className="md:max-w-67 md:content-end">
+            <SocialLinks className="mb-10 items-end [grid-area:social] max-xl:mt-8.25 xl:mb-9" />
+          </div>
 
           <p className="text-body-sm leading-normal text-(--color-ink-muted) [grid-area:copyright] xl:self-center xl:justify-self-end">
             Copyright ©BRAND Co., Ltd.

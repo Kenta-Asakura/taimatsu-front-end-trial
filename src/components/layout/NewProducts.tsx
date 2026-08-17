@@ -25,17 +25,19 @@ export function NewProducts({ products }: NewProductsProps) {
 
       {/* Desktop is capped to 6 cards wide; the rest scroll instead of
           wrapping like mobile does (see docs/decisions.md). */}
-      <div className="scrollbar-thin-ink mb-6 flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:max-w-[84.75rem] md:flex-nowrap md:justify-start md:gap-(--spacing-card-gap-desktop) md:overflow-x-auto md:pb-5">
-        {products.map((product, i) => (
-          <ProductCard key={i} {...product} />
-        ))}
+      <div className="relative">
+        <div className="scrollbar-products mb-6 flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:max-w-339 md:flex-nowrap md:justify-start md:gap-(--spacing-card-gap-desktop) md:overflow-x-auto md:pb-5">
+          {products.map((product, i) => (
+            <ProductCard key={i} {...product} />
+          ))}
+        </div>
 
         <button
           type="button"
           aria-label="次の商品"
-          className="hidden shrink-0 md:block"
+          className="absolute top-35 -right-7.25 hidden shrink-0 translate-y-2/4 transform lg:block"
         >
-          <Chevron direction="right" />
+          <Chevron direction="right" className="h-7.5 w-[15px]" />
         </button>
       </div>
 

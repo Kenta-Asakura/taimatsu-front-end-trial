@@ -19,7 +19,7 @@ type BrandsProps = {
 export function Brands({ entries, storeLabels }: BrandsProps) {
   return (
     <div className="flex flex-col">
-      <SectionHeader>Brands</SectionHeader>
+      <SectionHeader>いろいろなブランド</SectionHeader>
 
       <div className="mt-6 flex flex-wrap justify-center gap-(--spacing-card-gap-mobile) md:gap-(--spacing-card-gap-desktop)">
         {entries.map((entry, i) => (
