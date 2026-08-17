@@ -28,6 +28,8 @@ export function FullWidthHero({ slides }: Props) {
                   : undefined
               }
               alt={slide.imageAlt}
+              loading={i === ACTIVE_DOT_INDEX ? 'eager' : 'lazy'}
+              fetchPriority={i === ACTIVE_DOT_INDEX ? 'high' : undefined}
               className={'h-full shrink object-cover'}
             />
           ))}
