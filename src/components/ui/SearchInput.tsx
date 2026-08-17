@@ -17,7 +17,7 @@ export function SearchInput({
 }: SearchInputProps) {
   return (
     <div
-      className={`flex items-center rounded-(--radius-custom-sm) border ${className}`.trim()}
+      className={`flex items-center gap-x-1.75 rounded-(--radius-custom-sm) border md:gap-x-2.25 ${className}`.trim()}
     >
       <img
         src={searchIcon}

@@ -18,7 +18,7 @@ import { CATEGORIES } from '@/data/categories'
 import { FEATURES } from '@/data/features'
 import { HERO_SLIDES } from '@/data/hero'
 import { NEW_PRODUCTS } from '@/data/newProducts'
-import { PICKUPS } from '@/data/pickups'
+import { PICKUPS_DESKTOP, PICKUPS_MOBILE } from '@/data/pickups'
 
 // Page IA (top to bottom): Header, Notice, Hero, Categories, New Products,
 // Pickups, Features, Brands, Articles, Store Search, Footer.
@@ -58,7 +58,10 @@ function App() {
         {/* Pickups */}
         <section className="pt-15.25 pb-16.5 md:pt-16 md:pb-20">
           <Container>
-            <Pickups entries={PICKUPS} />
+            <Pickups
+              entriesDesktop={PICKUPS_DESKTOP}
+              entriesMobile={PICKUPS_MOBILE}
+            />
           </Container>
         </section>
 
