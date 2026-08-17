@@ -26,13 +26,8 @@ export const FEATURES: FeatureEntry[] = [
         imageAlt: '',
         caption: 'かぼちゃ・さつまいも・栗のお菓子',
       },
-      {
-        imageSrc: seasonalImg,
-        imageSrc2x: seasonalImg2x,
-        imageAlt: '',
-        caption: 'かぼちゃ・さつまいも・栗のお菓子',
-      },
     ],
+    secondaryVariant: 'single',
   },
   {
     category: '衣料品',
