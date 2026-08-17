@@ -28,7 +28,10 @@ export function Features({ entries }: FeaturesProps) {
       <div className="mb-10 md:mb-24">
         <ul className="scrollbar-features flex gap-5 overflow-x-auto pb-4 md:gap-4">
           {entries.map((entry, i) => (
-            <li key={entry.category} className="shrink-0">
+            <li
+              key={entry.category}
+              className={`shrink-0 ${i < entries.length - 1 ? 'md:border-gray-75 md:border-r-2 md:pr-4' : ''}`}
+            >
               <button
                 type="button"
                 className={`text-body-md md:text-body-lg inline-flex items-center gap-1 font-bold ${

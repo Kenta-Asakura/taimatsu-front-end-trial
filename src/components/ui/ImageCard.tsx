@@ -17,7 +17,7 @@ const variantConfig: Record<
   // Category tile: image (60/90) sits centered inside a wider container (110/211) — not stretched.
   categories: {
     align: 'center',
-    containerClassName: 'w-[110px] md:w-[211px]',
+    containerClassName: 'w-[110px] md:w-[205px]',
     imageClassName: 'h-[60px] w-[60px] md:h-[90px] md:w-[89px]',
   },
   // Pickups, Brands, and Articles card: image fills the container, portrait ratio.
