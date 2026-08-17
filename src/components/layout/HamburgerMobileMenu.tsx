@@ -87,6 +87,7 @@ export function HamburgerMobileMenu({
               src={categoryThumb}
               alt=""
               aria-hidden="true"
+              loading="lazy"
               className="w-20 shrink-0 self-stretch object-cover"
             />
 
