@@ -9,19 +9,25 @@ type FeatureBannerProps = {
   categoryLabel: string
   heroItem: FeatureBannerItem
   secondaryItems: FeatureBannerItem[]
+  // 'single' renders one secondary item full-width; 'double' renders two.
+  secondaryVariant?: 'single' | 'double'
 }
 
 function FeatureCard({
   item,
   className = '',
   imageClassName = '',
+  textClassName = 'px-2 md:pl-0',
 }: {
   item: FeatureBannerItem
   className?: string
   imageClassName?: string
+  textClassName?: string
 }) {
   return (
-    <div className={`flex flex-col gap-2 md:gap-3 ${className}`.trim()}>
+    <div
+      className={`flex flex-col bg-(--color-surface) md:bg-inherit ${className}`.trim()}
+    >
       <img
         src={item.imageSrc}
         srcSet={
@@ -33,43 +39,49 @@ function FeatureCard({
         loading="lazy"
         className={`w-full object-cover ${imageClassName}`.trim()}
       />
-      <span className="text-body-md md:text-body-lg leading-normal font-bold text-(--color-ink)">
+      <span
+        className={`text-body-md md:text-body-lg py-2 leading-normal font-bold text-(--color-ink) md:pt-5 md:pb-0 ${textClassName}`.trim()}
+      >
         {item.caption}
       </span>
     </div>
   )
 }
 
-// Category feature banner: a vertical (tategaki) category label beside one
-// hero card and a row of secondary cards. On mobile the label sits only as
-// tall as its own text, top-aligned beside a stacked hero-then-row layout;
-// on desktop the same label stretches (`self-stretch`) to match the row's
-// full height beside a hero-then-secondary-row layout — one flex structure
-// covers both screenshots without breakpoint-specific branching.
+// Vertical (tategaki) category label beside a hero card and a row of secondary cards.
 export function FeatureBanner({
   categoryLabel,
   heroItem,
   secondaryItems,
+  secondaryVariant = 'double',
 }: FeatureBannerProps) {
+  const shownItems =
+    secondaryVariant === 'single' ? secondaryItems.slice(0, 1) : secondaryItems
+
   return (
-    <div className="flex gap-4 md:gap-8">
-      <span className="text-heading-sm md:text-heading-lg shrink-0 self-start font-bold text-(--color-ink) [text-orientation:upright] [writing-mode:vertical-rl] md:self-stretch">
+    <div className="flex gap-7 md:gap-[58px]">
+      <span className="text-body-lg md:text-heading-md shrink-0 self-start font-bold [text-orientation:upright] [writing-mode:vertical-rl] md:self-stretch">
         {categoryLabel}
       </span>
 
-      <div className="flex flex-1 flex-col gap-3 md:flex-row md:gap-6">
+      <div className="flex flex-1 flex-col gap-[15px] md:flex-row md:gap-6">
         <FeatureCard
           item={heroItem}
           className="md:flex-1"
-          imageClassName="aspect-video md:h-full md:aspect-auto"
+          imageClassName="min-h-[199px] max-h-[622px] md:h-full"
         />
+
         <div className="flex flex-1 gap-3 md:gap-6">
-          {secondaryItems.map((item, i) => (
+          {shownItems.map((item, i) => (
             <FeatureCard
               key={i}
               item={item}
               className="flex-1"
-              imageClassName="aspect-4/3 md:h-full md:aspect-auto"
+              imageClassName={
+                secondaryVariant === 'double'
+                  ? 'min-h-[95px] max-h-[187px] md:h-full'
+                  : 'min-h-[199px] max-h-[622px] md:h-full'
+              }
             />
           ))}
         </div>
