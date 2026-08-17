@@ -19,9 +19,20 @@ const TEES: PickupEntry = {
 }
 
 // Demo content repeats one photo; each entry is independently editable.
-export const PICKUPS: PickupEntry[] = [
+// Desktop and mobile use different repeat counts per row (see Pickups.tsx),
+// so they're separate arrays rather than one list sliced two ways.
+export const PICKUPS_DESKTOP: PickupEntry[] = [
   SALE,
   ...Array(5).fill(TEES),
   SALE,
   ...Array(5).fill(TEES),
+]
+
+export const PICKUPS_MOBILE: PickupEntry[] = [
+  SALE,
+  ...Array(3).fill(TEES),
+  SALE,
+  ...Array(3).fill(TEES),
+  SALE,
+  ...Array(3).fill(TEES),
 ]

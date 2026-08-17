@@ -60,7 +60,7 @@ Rationale for calls made without designer sign-off, so they read as decisions ra
 
 ## Prior assumptions (carried from initial scaffold)
 
-- Figma frame widths (375 / 768 / 1440) are reference points, not hard breakpoints; layout adapts at content-driven breakpoints between them.
+- Figma frame widths (393 mobile / 1728 desktop) are reference points, not hard breakpoints; layout is built mobile-first and adapts at content-driven breakpoints between them. In-between screen sizes get minimal responsiveness but no dedicated styling — out of scope for this pass.
 - Undrawn interaction states (hover/focus/active/disabled) are designed to a documented convention and open to revision.
 - Colors are implemented as specified even where contrast is marginal; violations are reported, not silently corrected.
 - Single page, no routing, no form submission — form controls (if any) are styled but inert.
