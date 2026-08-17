@@ -26,7 +26,7 @@ export function Features({ entries }: FeaturesProps) {
       <SectionHeader className="mb-10.5 md:mb-10">特集</SectionHeader>
 
       <div className="mb-10 md:mb-24">
-        <ul className="flex gap-5 overflow-x-auto md:gap-4">
+        <ul className="scrollbar-features flex gap-5 overflow-x-auto pb-4 md:gap-4">
           {entries.map((entry, i) => (
             <li key={entry.category} className="shrink-0">
               <button

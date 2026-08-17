@@ -8,7 +8,7 @@ export type ContainerVariant = 'content' | 'fluid'
 // full-bleed sections that nest a 'content' Container inside for their text.
 const variantClasses: Record<ContainerVariant, string> = {
   content:
-    'w-full mx-auto items-center max-w-(--container-content-max) px-(--spacing-gutter-mobile) md:px-(--spacing-gutter-desktop)',
+    'w-full mx-auto items-center max-w-(--container-content-max) px-(--spacing-gutter-mobile) lg:px-(--spacing-gutter-desktop)',
   fluid: 'w-full',
 }
 

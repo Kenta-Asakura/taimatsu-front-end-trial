@@ -27,7 +27,7 @@ export function StoreSearch() {
           キーワードで探す
         </label>
 
-        <div className="flex h-12 items-stretch gap-1.75 md:h-13 md:gap-3">
+        <div className="flex h-12 items-stretch gap-1.75 md:h-13 md:max-w-212 md:gap-3">
           <SearchInput
             id={inputId}
             placeholder="店名、住所"
